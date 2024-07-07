@@ -1,3 +1,5 @@
+---@meta
+
 ---@class Model
 local model = {}
 
@@ -70,3 +72,5 @@ end
 ---@param ... any
 function model:url_key(...)
 end
+
+return model

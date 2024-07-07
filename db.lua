@@ -1,3 +1,5 @@
+---@meta
+
 ---@class Db
 local db = {
   ---@param query string
@@ -70,3 +72,5 @@ local db = {
   TRUE = true,
   FALSE = false
 }
+
+return db

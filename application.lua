@@ -1,69 +1,56 @@
---- Lapis module
----@class Lapis
-local lapis = {
-  Application = function()
-  end
-}
+---@meta
 
 --- Lapis Application
 ---@class App
+---@field layout function
 local app = {
-  layout = nil,
+  layout = require "views.layout"
 }
 
 ---@param feature string
 function app:enable(feature)
 end
 
----
 ---@param fn function
+---@param self table
 function app:before_filter(fn)
+  function self:write() end
 end
 
 ---@param route_name? string|nil
 ---@param route_path string
 ---@param action_fn function
----@return any
 function app:match(route_name, route_path, action_fn)
-  return {}
 end
 
 ---@param route_name string|nil
 ---@param route_path string
 ---@param action_fn function
----@return any
 function app:get(route_name, route_path, action_fn)
-  return {}
 end
 
 ---@param route_name string|nil
 ---@param route_path string
 ---@param action_fn function
----@return any
 function app:post(route_name, route_path, action_fn)
-  return {}
 end
 
 ---@param route_name string|nil
 ---@param route_path string
 ---@param action_fn function
----@return any
 function app:patch(route_name, route_path, action_fn)
-  return {}
 end
 
 ---@param route_name string|nil
 ---@param route_path string
 ---@param action_fn function
----@return any
 function app:put(route_name, route_path, action_fn)
-  return {}
 end
 
 ---@param route_name string|nil
 ---@param route_path string
 ---@param action_fn function
----@return any
 function app:delete(route_name, route_path, action_fn)
-  return {}
 end
+
+return app

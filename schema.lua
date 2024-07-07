@@ -1,3 +1,5 @@
+---@meta
+
 ---@class Schema
 local schema = {
   ---@class Schema.types
@@ -77,3 +79,5 @@ local schema = {
   rename_table = function(old_name, new_name)
   end,
 }
+
+return schema
