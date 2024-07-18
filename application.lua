@@ -67,7 +67,7 @@ local app = {
   layout = require "views.layout"
 }
 
----@alias ActionFn fun(self: AppSelf): AppRenderOptions|string
+---@alias ActionFn fun(self: AppSelf): AppRenderOptions | string | any
 
 ---@param feature string
 function app:enable(feature)
@@ -113,8 +113,7 @@ end
 function app:delete(route_name, route_path, action_fn)
 end
 
----@alias ContollerFunc ActionFn
 ---@class ControllerTable
----@field [string] ContollerFunc
+---@field [string] ActionFn
 
 return app
