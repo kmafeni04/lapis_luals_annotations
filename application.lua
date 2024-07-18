@@ -1,7 +1,7 @@
 ---@meta
 
 ---@class AppRenderOptions
----@field status? number
+---@field status number
 ---@field render? boolean|string
 ---@field content_type? string
 ---@field headers? table
@@ -26,10 +26,12 @@
 ---@class AppSelf
 ---@field route_name string The name of the route that was matched during routing, if available
 ---@field params table
+---@field session table
 ---@field GET table
 ---@field POST table
 ---@field req SelfRequesTable
 ---@field cookies table
+---@field [string] any User defined variables accessible within views
 local self = {}
 
 ---@param things any
@@ -65,16 +67,15 @@ local app = {
   layout = require "views.layout"
 }
 
+---@alias ActionFn fun(self: AppSelf): AppRenderOptions|string
+
 ---@param feature string
 function app:enable(feature)
 end
 
----@param fn function
----@param self table
+---@param fn ActionFn
 function app:before_filter(fn)
 end
-
----@alias ActionFn fun(self: AppSelf): AppRenderOptions
 
 ---@param route_name? string|nil
 ---@param route_path string
@@ -111,5 +112,9 @@ end
 ---@param action_fn ActionFn
 function app:delete(route_name, route_path, action_fn)
 end
+
+---@alias ContollerFunc ActionFn
+---@class ControllerTable
+---@field [string] ContollerFunc
 
 return app

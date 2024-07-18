@@ -1,9 +1,11 @@
 ---@meta
 
 ---@class Model
+---@field [string] any
 local model = {}
 
 ---@param ... any
+---@return Model
 function model:find(...)
 end
 
@@ -54,6 +56,7 @@ end
 
 ---@param table_name string
 ---@param fields table|nil
+---@return self, table
 function model:extend(table_name, fields)
 end
 
