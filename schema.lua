@@ -2,7 +2,7 @@
 
 ---@class Schema
 local schema = {
-  ---@class Schema.types
+  ---@class SchemaTypes
   types = {
     ---@param opts? table|nil
     boolean = function(opts)
@@ -41,6 +41,7 @@ local schema = {
     enum = function(opts)
     end,
   },
+
   ---@param table_name string
   ---@param table_declarations table
   create_table = function(table_name, table_declarations)
@@ -62,7 +63,7 @@ local schema = {
   ---
   ---@param table_name string
   ---@param column_name string
-  ---@param column_type Schema.types
+  ---@param column_type SchemaTypes
   add_column = function(table_name, column_name, column_type)
   end,
   ---@param table_name string

@@ -1,6 +1,38 @@
 ---@meta
 
+---@class ConfigPostgres
+---@field host? string
+---@field port? string | integer
+---@field user? string
+---@field password? string
+---@field database? string
+
+---@class ConfigMysql
+---@field host? string
+---@field port? string | integer
+---@field user? string
+---@field password? string
+---@field database? string
+
+---@class ConfigSqlite
+---@field database? string
+---@field open_flags? string
+
 ---@class ConfigOpts
+---@field server? string
+---@field port? string | integer
+---@field bind_host? string
+---@field secret? string
+---@field hmac_digest? string
+---@field session_name? string
+---@field code_cache? string
+---@field num_workers? string | integer
+---@field logging? table
+---@field max_reques_args? table | nil
+---@field measure_performance? boolean
+---@field postgres? ConfigPostgres
+---@field mysql? ConfigMysql
+---@field sqlite? ConfigSqlite
 local config_opts = {
   server = "nginx",
   port = 8080,

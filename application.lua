@@ -1,7 +1,7 @@
 ---@meta
 
 ---@class AppRenderOptions
----@field status number
+---@field status? number
 ---@field render? boolean|string
 ---@field content_type? string
 ---@field headers? table
@@ -34,7 +34,10 @@
 ---@field [string] any User defined variables accessible within views
 local self = {}
 
----@param things any
+---@alias HTTPResponse AppRenderOptions | string | nil
+
+---@param things string | function | AppRenderOptions
+---@return HTTPResponse
 function self:write(things) end
 
 ---@param name_or_obj string|Model
@@ -57,7 +60,7 @@ function self:build_url(path, options) end
 ---@param module_name string
 function self:flow(module_name) end
 
----@param fn function
+---@param fn WidgetFunc
 function self:html(fn) end
 
 --- Lapis Application
@@ -67,7 +70,7 @@ local app = {
   layout = require "views.layout"
 }
 
----@alias ActionFn fun(self: AppSelf): AppRenderOptions | string | any
+---@alias ActionFn fun(self: AppSelf): HTTPResponse
 
 ---@param feature string
 function app:enable(feature)
@@ -77,37 +80,37 @@ end
 function app:before_filter(fn)
 end
 
----@param route_name? string|nil
+---@param route_name? string
 ---@param route_path string
 ---@param action_fn ActionFn
 function app:match(route_name, route_path, action_fn)
 end
 
----@param route_name string|nil
+---@param route_name? string
 ---@param route_path string
 ---@param action_fn ActionFn
 function app:get(route_name, route_path, action_fn)
 end
 
----@param route_name string|nil
+---@param route_name? string
 ---@param route_path string
 ---@param action_fn ActionFn
 function app:post(route_name, route_path, action_fn)
 end
 
----@param route_name string|nil
+---@param route_name? string
 ---@param route_path string
 ---@param action_fn ActionFn
 function app:patch(route_name, route_path, action_fn)
 end
 
----@param route_name string|nil
+---@param route_name? string
 ---@param route_path string
 ---@param action_fn ActionFn
 function app:put(route_name, route_path, action_fn)
 end
 
----@param route_name string|nil
+---@param route_name? string
 ---@param route_path string
 ---@param action_fn ActionFn
 function app:delete(route_name, route_path, action_fn)
