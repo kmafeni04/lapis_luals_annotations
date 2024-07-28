@@ -82,7 +82,8 @@ function text(args) end
 function widget(another_widget) end
 
 ---@param template_name string
-function render(template_name) end
+---@param fields? table
+function render(template_name, fields) end
 
 --- HTML ELEMENTS ---
 
@@ -98,7 +99,7 @@ function b(attr, content) end
 ---@param content?  string | function
 function body(attr, content) end
 
----@param attr BasicAttrs
+---@param attr? BasicAttrs
 function br(attr) end
 
 ---@param attr? ButtonAttrs
@@ -161,7 +162,7 @@ function head(attr, content) end
 ---@param content? string | function
 function header(attr, content) end
 
----@param attr BasicAttrs
+---@param attr? BasicAttrs
 function hr(attr) end
 
 ---@param attr? ImageAttrs
@@ -270,5 +271,5 @@ function tr(attr, content) end
 ---@param content? string | function
 function ul(attr, content) end
 
----@param attr BasicAttrs
+---@param attr? BasicAttrs
 function wbr(attr) end
