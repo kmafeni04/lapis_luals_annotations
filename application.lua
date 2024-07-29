@@ -34,10 +34,10 @@
 ---@field [string] any User defined variables accessible within views
 local self = {}
 
----@alias HTTPResponse AppRenderOptions | string | nil
+---@alias Response AppRenderOptions | string | Widget | nil
 
 ---@param things string | function | AppRenderOptions
----@return HTTPResponse
+---@return Response
 function self:write(things) end
 
 ---@param name_or_obj string|Model
@@ -70,7 +70,7 @@ local app = {
   layout = require "views.layout"
 }
 
----@alias ActionFn fun(self: AppSelf): HTTPResponse
+---@alias ActionFn fun(self: AppSelf): Response
 
 ---@param feature string
 function app:enable(feature)

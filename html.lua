@@ -6,10 +6,10 @@ local Widget = {}
 ---@alias WidgetFunc function
 
 ---@param name? string
----@param fields? table
 ---@param setup_fn? WidgetFunc
----@return self,table
-function Widget:extend(name, fields, setup_fn) end
+---@param fields? table
+---@return self
+function Widget:extend(name, setup_fn, fields) end
 
 ---@class BasicAttrs
 ---@field class? string | table
