@@ -66,9 +66,7 @@ function self:html(fn) end
 --- Lapis Application
 ---@class App
 ---@field layout function
-local app = {
-  layout = require "views.layout"
-}
+local app = {}
 
 ---@alias ActionFn fun(self: AppSelf): Response
 
@@ -80,40 +78,70 @@ end
 function app:before_filter(fn)
 end
 
----@param route_name? string
+---@param route_name string
 ---@param route_path string
 ---@param action_fn ActionFn
 function app:match(route_name, route_path, action_fn)
 end
 
----@param route_name? string
+---@param route_path string
+---@param action_fn ActionFn
+function app:match(route_path, action_fn)
+end
+
+---@param route_name string
 ---@param route_path string
 ---@param action_fn ActionFn
 function app:get(route_name, route_path, action_fn)
 end
 
----@param route_name? string
+---@param route_path string
+---@param action_fn ActionFn
+function app:get(route_path, action_fn)
+end
+
+---@param route_name string
 ---@param route_path string
 ---@param action_fn ActionFn
 function app:post(route_name, route_path, action_fn)
 end
 
----@param route_name? string
+---@param route_path string
+---@param action_fn ActionFn
+function app:post(route_path, action_fn)
+end
+
+---@param route_name string
 ---@param route_path string
 ---@param action_fn ActionFn
 function app:patch(route_name, route_path, action_fn)
 end
 
----@param route_name? string
+---@param route_path string
+---@param action_fn ActionFn
+function app:patch(route_path, action_fn)
+end
+
+---@param route_name string
 ---@param route_path string
 ---@param action_fn ActionFn
 function app:put(route_name, route_path, action_fn)
 end
 
----@param route_name? string
+---@param route_path string
+---@param action_fn ActionFn
+function app:put(route_path, action_fn)
+end
+
+---@param route_name string
 ---@param route_path string
 ---@param action_fn ActionFn
 function app:delete(route_name, route_path, action_fn)
+end
+
+---@param route_path string
+---@param action_fn ActionFn
+function app:delete(route_path, action_fn)
 end
 
 ---@class ControllerTable

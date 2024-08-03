@@ -3,14 +3,16 @@
 ---@class Model
 ---@field [string] any
 local model = {}
+local model_mt = {}
+model_mt.__index = model
 
----@param ... any
----@return Model
+---@param ... string | table | number
+---@return Model?
 function model:find(...)
 end
 
----@param query? string|table
----@param ...? string|table
+---@param query? string | Db
+---@param ...? string | table
 ---@return table
 function model:select(query, ...)
 end
@@ -19,8 +21,8 @@ end
 function model:find_all(primary_keys)
 end
 
----@param clause string|nil
----@param ... string|number
+---@param clause? string | Db
+---@param ...? string | number
 function model:count(clause, ...)
 end
 
@@ -55,9 +57,10 @@ function model:get_relation_model(name)
 end
 
 ---@param table_name string
----@param fields table|nil
----@return self, table
+---@param fields? table
 function model:extend(table_name, fields)
+  local instance = setmetatable({}, model_mt)
+  return instance, model
 end
 
 ---@param ... any
@@ -75,5 +78,3 @@ end
 ---@param ... any
 function model:url_key(...)
 end
-
-return model

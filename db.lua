@@ -29,7 +29,7 @@ local db = {
   ---@param ...? any
   delete = function(table, conditions, params, ...)
   end,
-  ---@param value Schema.types
+  ---@param value SchemaTypes
   escape_literal = function(value)
   end,
   ---@param str string
@@ -54,9 +54,17 @@ local db = {
   ---@param obj table
   is_list = function(obj)
   end,
-  ---@class Db.clause
+
+  ---@class ClauseOpts
+  ---@field operator? string
+  ---| "AND"
+  ---| "OR"
+  ---@field table_name? string
+  ---@field allow_empty? boolean
+  ---@field prefix? string
+
   ---@param clause table
-  ---@param opts? any
+  ---@param opts? ClauseOpts
   clause = function(clause, opts)
   end,
   ---@param obj table
@@ -70,7 +78,8 @@ local db = {
   end,
   NULL = nil,
   TRUE = true,
-  FALSE = false
+  FALSE = false,
+  format_date = function() end
 }
 
 return db

@@ -1,43 +1,50 @@
 ---@meta
 
+---@class SchemaTypesOpts
+---@field value? any
+---@field null? boolean
+---@field unique? boolean
+---@field primary_key? boolean
+---@field array? boolean | number
+
 ---@class Schema
 local schema = {
   ---@class SchemaTypes
   types = {
-    ---@param opts? table|nil
+    ---@param opts? SchemaTypesOpts
     boolean = function(opts)
     end,
-    ---@param opts? table|nil
+    ---@param opts? SchemaTypesOpts
     date = function(opts)
     end,
-    ---@param opts? table|nil
+    ---@param opts? SchemaTypesOpts
     double = function(opts)
     end,
-    ---@param opts? table|nil
+    ---@param opts? SchemaTypesOpts
     foreign_key = function(opts)
     end,
-    ---@param opts? table|nil
+    ---@param opts? SchemaTypesOpts
     integer = function(opts)
     end,
-    ---@param opts? table|nil
+    ---@param opts? SchemaTypesOpts
     numeric = function(opts)
     end,
-    ---@param opts? table|nil
+    ---@param opts? SchemaTypesOpts
     real = function(opts)
     end,
-    ---@param opts? table|nil
+    ---@param opts? SchemaTypesOpts
     serial = function(opts)
     end,
-    ---@param opts? table|nil
+    ---@param opts? SchemaTypesOpts
     text = function(opts)
     end,
-    ---@param opts? table|nil
+    ---@param opts? SchemaTypesOpts
     time = function(opts)
     end,
-    ---@param opts? table|nil
+    ---@param opts? SchemaTypesOpts
     varchar = function(opts)
     end,
-    ---@param opts? table|nil
+    ---@param opts? SchemaTypesOpts
     enum = function(opts)
     end,
   },
@@ -81,4 +88,5 @@ local schema = {
   end,
 }
 
+return schema
 return schema

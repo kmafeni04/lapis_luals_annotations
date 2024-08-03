@@ -16,7 +16,7 @@
 
 ---@class ConfigSqlite
 ---@field database? string
----@field open_flags? string
+---@field open_flags? integer
 
 ---@class ConfigOpts
 ---@field server? string
