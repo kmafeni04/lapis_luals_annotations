@@ -66,6 +66,12 @@ function Widget:render_to_string() end
 ---@field title? string
 ---@field [string] any
 
+---@class MetaAttrs : BasicAttrs
+---@field charset?
+---| "UTF-8"
+---@field content? string
+---@field http-equiv? string
+---@field name? string
 
 ---@class InputAttrs : BasicAttrs
 ---@field autocomplete? string
@@ -77,8 +83,30 @@ function Widget:render_to_string() end
 ---@field minlength? string | number
 ---@field name? string
 ---@field placeholder? string
----@field required? string | boolean
----@field type? string
+---@field required?  boolean
+---@field type?
+---| "button"
+---| "checkbox"
+---| "color"
+---| "date"
+---| "datetime-local"
+---| "email"
+---| "file"
+---| "hidden"
+---| "image"
+---| "month"
+---| "number"
+---| "password"
+---| "radio"
+---| "range"
+---| "reset"
+---| "search"
+---| "submit"
+---| "tel"
+---| "text"
+---| "time"
+---| "url"
+---| "week"
 ---@field value? string
 
 ---@class AnchorAttrs : BasicAttrs
@@ -117,7 +145,7 @@ function Widget:render_to_string() end
 
 ---@class ScriptAttrs
 ---@field src? string
----@field defer? boolean | string
+---@field defer? boolean
 
 ---@class OptGroupAttrs : BasicAttrs
 ---@field disabled? boolean | string
@@ -305,7 +333,7 @@ function link(attr, content) end
 ---@overload fun(content: string | function)
 function main(attr, content) end
 
----@param attr? BasicAttrs
+---@param attr? MetaAttrs
 ---@param content?  string | function
 ---@overload fun(content: string | function)
 function meta(attr, content) end
@@ -398,6 +426,11 @@ function th(attr, content) end
 ---@param content? string | function
 ---@overload fun(content: string | function)
 function thead(attr, content) end
+
+---@param attr? BasicAttrs
+---@param content? string | function
+---@overload fun(content: string | function)
+function title(attr, content) end
 
 ---@param attr? BasicAttrs
 ---@param content? string | function

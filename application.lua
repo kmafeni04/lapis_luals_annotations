@@ -31,7 +31,7 @@
 ---@field POST table
 ---@field req SelfRequesTable
 ---@field cookies table
----@field [string] any User defined variables accessible within views
+---@field [string] any
 local self = {}
 
 ---@alias Response AppRenderOptions | string | Widget | nil
@@ -62,6 +62,9 @@ function self:flow(module_name) end
 
 ---@param fn WidgetFunc
 function self:html(fn) end
+
+---@param name string
+function self:content_for(name) end
 
 --- Lapis Application
 ---@class App
