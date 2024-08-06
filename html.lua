@@ -64,6 +64,10 @@ function Widget:render_to_string() end
 ---@field role? string
 ---@field style? string
 ---@field title? string
+---@field autofocus? boolean
+---@field autocapitalize? boolean
+---@field draggable? boolean
+---@field popover? boolean
 ---@field [string] any
 
 ---@class MetaAttrs : BasicAttrs
@@ -108,6 +112,7 @@ function Widget:render_to_string() end
 ---| "url"
 ---| "week"
 ---@field value? string
+---@field disabled? boolean
 
 ---@class AnchorAttrs : BasicAttrs
 ---@field href? string
@@ -137,7 +142,13 @@ function Widget:render_to_string() end
 ---@class ButtonAttrs : BasicAttrs
 ---@field type? string
 ---@field value? string
----@field disabled? boolean | string
+---@field disabled? boolean
+---@field popovertarget? string
+---@field popovertargetaction?
+---|"hide"
+---|"show"
+---|"toggle"
+---@field name? string
 
 ---@class ImageAttrs : BasicAttrs
 ---@field src? string
