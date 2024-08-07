@@ -1,7 +1,7 @@
 ---@meta
 
 ---@class Widget
----@overload fun(params: table): Widget
+---@overload fun(params?: table): Widget
 local Widget = {}
 
 --[[
@@ -23,8 +23,6 @@ print(w:render_to_string()) --> <div>Hello Garf</div>
 
 It is safe to override the constructor and not call `super` if you want to change the initialization conditions of your widget.
 ]]
----@param params table
-function Widget(params) end
 
 ---@alias WidgetFunc fun(self: AppSelf)
 
