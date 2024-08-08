@@ -89,4 +89,3 @@ local schema = {
 }
 
 return schema
-return schema
