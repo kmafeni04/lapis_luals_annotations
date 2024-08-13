@@ -282,7 +282,7 @@ function html(attr, content) end
 function i(attr, content) end
 
 ---@param attr? ImageAttrs
-function image(attr) end
+function img(attr) end
 
 ---@param attr? InputAttrs
 function input(attr) end
