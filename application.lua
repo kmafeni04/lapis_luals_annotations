@@ -68,7 +68,7 @@ function self:content_for(name) end
 
 --- Lapis Application
 ---@class App
----@field layout function
+---@field layout any
 local app = {}
 
 ---@alias ActionFn fun(self: AppSelf): Response

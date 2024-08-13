@@ -1,55 +1,21 @@
 ---@meta
 
 ---@class Widget
----@overload fun(params?: table): Widget
+---@overload fun(params?: self): self
 local Widget = {}
-
---[[
-  The default constructor of the widget class will copy every field from the opts argument to self, if the opts argument is provided. You can use this to set render-time parameters or override methods.
-
-
-```lua
-local Widget = require("lapis.html").Widget
-
-local SomeWidget = Widget:extend({
-  content = function(self)
-    div("Hello ", self.name)
-  end
-})
-
-local w = SomeWidget({ name = "Garf" })
-print(w:render_to_string()) --> <div>Hello Garf</div>
-```
-
-It is safe to override the constructor and not call `super` if you want to change the initialization conditions of your widget.
-]]
+---@class WidgetMt : Widget
+local WidgetMt = {}
 
 ---@alias WidgetFunc fun(self: AppSelf)
 
---[[
-  Creates a new subclass of the `Widget` base class. The `fields` argument is a table of properties that will be copied into the instance metatable of the newly created class, or it can be a function and it willl be set as the `content` field.
-
-`name` is not directly used by Lapis but it can be helpful to provide it for debugging and for implementing systems that derive details about the rendred output based on the name of the widget (eg. automatically generated a class based on the widget’s name)
-
-`setup_fn` is an optional function that will be called with the class object as the only argument. This function is called after properties have been set but before any `__inherited` callbacks are called. The default `Widget` class does not have any `__inherited` callbacks so it is not necessary to use this function unless you specifically need that behavior for a subclass you have created.
-
-This method returns the newly created class object, followed by the instance metatable.
-
-```lua
-local SomeWidget = Widget:extend(function(self)
-  return div("Hello world!")
-end)
-print(SomeWidget():render_to_string())
-```
-]]
 ---@param name string
 ---@param fields table
 ---@param setup_fn WidgetFunc
----@return self
+---@return self, WidgetMt
 function Widget:extend(name, fields, setup_fn) end
 
 ---@param setup_fn WidgetFunc
----@return self
+---@return self, WidgetMt
 function Widget:extend(setup_fn) end
 
 ---@return string
@@ -316,11 +282,9 @@ function html(attr, content) end
 function i(attr, content) end
 
 ---@param attr? ImageAttrs
----@overload fun(content: string | function)
 function image(attr) end
 
 ---@param attr? InputAttrs
----@overload fun(content: string | function)
 function input(attr) end
 
 ---@param attr? BasicAttrs
