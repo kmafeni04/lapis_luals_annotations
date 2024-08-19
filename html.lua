@@ -45,10 +45,11 @@ function Widget:render_to_string() end
 ---@field autocomplete? string
 ---| "off"
 ---| "on"
----@field max? string | number
+---@field max? string | number | osdate
 ---@field maxlength? string | number
----@field min? string | number
+---@field min? string | number | osdate
 ---@field minlength? string | number
+---@field step? string | number
 ---@field name? string
 ---@field placeholder? string
 ---@field required?  boolean

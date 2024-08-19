@@ -36,13 +36,13 @@ local self = {}
 
 ---@alias Response AppRenderOptions | string | Widget | nil
 
----@param things string | function | AppRenderOptions
+---@param ... string | function | AppRenderOptions
 ---@return Response
-function self:write(things) end
+function self:write(...) end
 
 ---@param name_or_obj string|Model
 ---@param params? table
----@param query_params? table|nil
+---@param query_params? table
 ---@return string
 function self:url_for(name_or_obj, params, query_params) end
 
@@ -74,78 +74,64 @@ local app = {}
 ---@alias ActionFn fun(self: AppSelf): Response
 
 ---@param feature string
-function app:enable(feature)
-end
+function app:enable(feature) end
 
 ---@param fn ActionFn
-function app:before_filter(fn)
-end
+function app:before_filter(fn) end
 
 ---@param route_name string
 ---@param route_path string
 ---@param action_fn ActionFn
-function app:match(route_name, route_path, action_fn)
-end
+function app:match(route_name, route_path, action_fn) end
 
 ---@param route_path string
 ---@param action_fn ActionFn
-function app:match(route_path, action_fn)
-end
+function app:match(route_path, action_fn) end
 
 ---@param route_name string
 ---@param route_path string
 ---@param action_fn ActionFn
-function app:get(route_name, route_path, action_fn)
-end
+function app:get(route_name, route_path, action_fn) end
 
 ---@param route_path string
 ---@param action_fn ActionFn
-function app:get(route_path, action_fn)
-end
+function app:get(route_path, action_fn) end
 
 ---@param route_name string
 ---@param route_path string
 ---@param action_fn ActionFn
-function app:post(route_name, route_path, action_fn)
-end
+function app:post(route_name, route_path, action_fn) end
 
 ---@param route_path string
 ---@param action_fn ActionFn
-function app:post(route_path, action_fn)
-end
+function app:post(route_path, action_fn) end
 
 ---@param route_name string
 ---@param route_path string
 ---@param action_fn ActionFn
-function app:patch(route_name, route_path, action_fn)
-end
+function app:patch(route_name, route_path, action_fn) end
 
 ---@param route_path string
 ---@param action_fn ActionFn
-function app:patch(route_path, action_fn)
-end
+function app:patch(route_path, action_fn) end
 
 ---@param route_name string
 ---@param route_path string
 ---@param action_fn ActionFn
-function app:put(route_name, route_path, action_fn)
-end
+function app:put(route_name, route_path, action_fn) end
 
 ---@param route_path string
 ---@param action_fn ActionFn
-function app:put(route_path, action_fn)
-end
+function app:put(route_path, action_fn) end
 
 ---@param route_name string
 ---@param route_path string
 ---@param action_fn ActionFn
-function app:delete(route_name, route_path, action_fn)
-end
+function app:delete(route_name, route_path, action_fn) end
 
 ---@param route_path string
 ---@param action_fn ActionFn
-function app:delete(route_path, action_fn)
-end
+function app:delete(route_path, action_fn) end
 
 ---@class ControllerTable
 ---@field [string] ActionFn
