@@ -48,8 +48,8 @@ function model:get_relation_model(name) end
 ---@param table_name string
 ---@param fields? table
 function model:extend(table_name, fields)
-	local instance = setmetatable({}, model_mt)
-	return instance, model
+  local instance = setmetatable({}, model_mt)
+  return instance, model
 end
 
 ---@param ... any

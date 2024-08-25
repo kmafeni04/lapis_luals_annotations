@@ -17,27 +17,26 @@
 ---@field port string
 ---@field query string
 
----@class SelfRequesTable
+---@class SelfRequestTable
 ---@field headers table
 ---@field parsed_url ParsedUrl
 ---@field params_get table
 ---@field params_post table
 
 ---@class AppSelf
----@field route_name string The name of the route that was matched during routing, if available
+---@field route_name string
 ---@field params table
 ---@field session table
 ---@field GET table
 ---@field POST table
----@field req SelfRequesTable
+---@field req SelfRequestTable
 ---@field cookies table
 ---@field [string] any
 local self = {}
 
----@alias Response AppRenderOptions | string | Widget | nil
+---@alias Response AppRenderOptions | string | Widget | function | nil
 
----@param ... string | function | AppRenderOptions
----@return Response
+---@param ... Response
 function self:write(...) end
 
 ---@param name_or_obj string|Model
@@ -71,7 +70,7 @@ function self:content_for(name) end
 ---@field layout any
 local app = {}
 
----@alias ActionFn fun(self: AppSelf): Response
+---@alias ActionFn fun(self: AppSelf): Response, ...
 
 ---@param feature string
 function app:enable(feature) end
@@ -133,7 +132,7 @@ function app:delete(route_name, route_path, action_fn) end
 ---@param action_fn ActionFn
 function app:delete(route_path, action_fn) end
 
----@class ControllerTable
+---@class ControllerTable : AppSelf
 ---@field [string] ActionFn
 
 return app

@@ -34,33 +34,33 @@
 ---@field mysql? ConfigMysql
 ---@field sqlite? ConfigSqlite
 local config_opts = {
-	server = "nginx",
-	port = 8080,
-	bind_host = "0.0.0.0",
-	secret = "please-change-me",
-	hmac_digest = "sha1",
-	session_name = "lapis_session",
-	code_cache = "off",
-	num_workers = 1,
-	logging = {},
-	max_request_args = nil,
-	measure_performance = false,
-	postgres = {
-		host = "127.0.0.1",
-		port = "5432",
-		user = "pg_user",
-		password = "the_password",
-		database = "my_database",
-	},
-	mysql = {
-		host = "127.0.0.1",
-		user = "mysql_user",
-		password = "the_password",
-		database = "my_database",
-	},
-	sqlite = {
-		database = "my_database.sqlite",
-	},
+  server = "nginx",
+  port = 8080,
+  bind_host = "0.0.0.0",
+  secret = "please-change-me",
+  hmac_digest = "sha1",
+  session_name = "lapis_session",
+  code_cache = "off",
+  num_workers = 1,
+  logging = {},
+  max_request_args = nil,
+  measure_performance = false,
+  postgres = {
+    host = "127.0.0.1",
+    port = "5432",
+    user = "pg_user",
+    password = "the_password",
+    database = "my_database",
+  },
+  mysql = {
+    host = "127.0.0.1",
+    user = "mysql_user",
+    password = "the_password",
+    database = "my_database",
+  },
+  sqlite = {
+    database = "my_database.sqlite",
+  },
 }
 
 ---@alias Config table|fun(env: string|string[], opts: ConfigOpts)
