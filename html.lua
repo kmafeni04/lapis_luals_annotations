@@ -78,6 +78,7 @@ function Widget:render_to_string() end
 ---| "week"
 ---@field value? string
 ---@field disabled? boolean
+---@field hidden? boolean
 
 ---@class AnchorAttrs : BasicAttrs
 ---@field href? string
@@ -132,6 +133,7 @@ function Widget:render_to_string() end
 ---@field label? string
 ---@field selected? boolean | string
 ---@field value? string
+---@field hidden? boolean
 
 --- HTML UTILITY FUNCTIONS ---
 

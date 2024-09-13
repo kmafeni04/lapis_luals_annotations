@@ -68,12 +68,15 @@ function self:content_for(name) end
 --- Lapis Application
 ---@class App
 ---@field layout any
+---@field [string] any
 local app = {}
 
 ---@alias ActionFn fun(self: AppSelf): Response, ...
 
 ---@param feature string
 function app:enable(feature) end
+
+function app:handle_404() end
 
 ---@param fn ActionFn
 function app:before_filter(fn) end
@@ -133,6 +136,6 @@ function app:delete(route_name, route_path, action_fn) end
 function app:delete(route_path, action_fn) end
 
 ---@class ControllerTable : AppSelf
----@field [string] ActionFn
+---@field [string] any | ActionFn
 
 return app
